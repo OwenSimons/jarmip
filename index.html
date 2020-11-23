@@ -13,13 +13,28 @@
 
 </header>
 <main>
-    <div class="container" id="jarm">
+    <div class="container">
         <h1>JARMIP</h1>
-        <h2>JARM TLS Fingerprint</h2>
-        <p>Using JARM to generate fingerprints of TLS servers</p>
-        <input v-model="ip" class="input" type="text" placeholder="google.com">
-        <button class="button is-primary" onclick="apiClient.generateJarm()">JARM-IT</button>
-        <p>JARM: {{ jarm }}</p>
+        <h2>JARM TLS Fingerprints</h2>
+        <p>Using this web app you can generate JARM fingerprints of TLS servers.</p>
+        <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a">
+            <button class="button is-outlined is-primary">What is JARM?</button>
+        </a>
+        <a href="https://github.com/salesforce/jarm">
+            <button class="button is-outlined is-primary">JARM Source</button>
+        </a>
+        <a href="https://github.com/OwenSimons/jarmip">
+            <button class="button is-outlined is-primary">JARMIP Source</button>
+        </a>
+        <section id="jarm">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <input v-model="ip" class="input is-three-fifths" type="text" placeholder="google.com">
+                </div>
+            </div>
+            <button class="button is-primary" onclick="apiClient.generateJarm()">JARM-IT</button>
+            <p class="">{{ jarm }}</p>
+        </section>
     </div>
 </main>
 
