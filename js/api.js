@@ -2,7 +2,7 @@ var apiClient = new Vue({
     el: "#jarm",
     data() {
         return {
-            endpoint: "http://0.0.0.0:8080/api/",
+            endpoint: "https://jarmip-wqmjmf7yjq-nw.a.run.app/api/",
             ip: null,
             jarm: null,
         }
