@@ -23,24 +23,12 @@ def run(ip):
     import argparse
     import hashlib
     import ipaddress
+    from argparse import Namespace
 
-    parser = argparse.ArgumentParser(description="Enter an IP address and port to scan.")
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("scan", nargs='?', help="Enter an IP or domain to scan.")
-    group.add_argument("-i", "--input",
-                       help="Provide a list of IP addresses or domains to scan, one domain or IP address per line.  Optional: Specify port to scan with comma separation (e.g. 8.8.4.4,853).",
-                       type=str)
-    parser.add_argument("-p", "--port", help="Enter a port to scan (default 443).", type=int)
-    parser.add_argument("-v", "--verbose", help="Verbose mode: displays the JARM results before being hashed.",
-                        action="store_true")
-    parser.add_argument("-V", "--version", help="Print out version and exit.", action="store_true")
-    parser.add_argument("-o", "--output", help="Provide a filename to output/append results to a CSV file.", type=str)
-    args = parser.parse_args()
+    args = Namespace(input=None, output=None, port=None, scan=ip, verbose=False, version=False)
     if args.version:
         print("JARM version 1.0")
         exit()
-    if not (args.scan or args.input):
-        parser.error("A domain/IP to scan or an input file is required.")
 
     # Randomly choose a grease value
     def choose_grease():
