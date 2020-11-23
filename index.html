@@ -2,16 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TLS Fingerprint JARM</title>
+    <link rel="stylesheet" type="text/css" href="sass/index.css">
     <script src="js/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 <body>
+<header>
 
-<div id="jarm">
-    <p>JARM: {{ jarm }}</p>
-</div>
+</header>
+<main>
+    <div class="container" id="jarm">
+        <h1>JARMIP</h1>
+        <h2>JARM TLS Fingerprint</h2>
+        <p>Using JARM to generate fingerprints of TLS servers</p>
+        <input v-model="ip" class="input" type="text" placeholder="google.com">
+        <button class="button is-primary" onclick="apiClient.generateJarm()">JARM-IT</button>
+        <p>JARM: {{ jarm }}</p>
+    </div>
+</main>
 
 
 <script src="js/api.js"></script>

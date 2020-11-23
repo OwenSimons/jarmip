@@ -3,7 +3,7 @@ var apiClient = new Vue({
     data() {
         return {
             endpoint: "http://127.0.0.1:5000/api/",
-            ip: "google.com",
+            ip: null,
             jarm: null,
         }
     },
