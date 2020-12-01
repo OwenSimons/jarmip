@@ -22,7 +22,7 @@
 
 </header>
 <main>
-    <div class="container">
+    <div class="container" id="jarm">
         <h1>JARMIP</h1>
         <h2>JARM TLS Fingerprints</h2>
         <p>Using this web app you can generate JARM fingerprints of TLS servers.</p>
@@ -32,14 +32,26 @@
         <a href="https://github.com/salesforce/jarm">
             <button class="button is-outlined is-primary">JARM Source</button>
         </a>
-        <section id="jarm">
+        <section>
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <input v-model="ip" class="input is-three-fifths" type="text" placeholder="google.com">
                 </div>
             </div>
             <button class="button is-primary" onclick="apiClient.generateJarm()">JARM-IT</button>
-            <p class="">{{ jarm }}</p>
+            <p><strong>{{ jarm }}</strong></p>
+        </section>
+        <section>
+            <table class="table is-horizontal is-striped is-hoverable">
+                <tr>
+                    <th>Malicious Server C2</th>
+                    <th>JARM Fingerprint</th>
+                </tr>
+                <tr v-for="(server) in maliciousServers" class="has-text-left">
+                    <td>{{ server.name }}</td>
+                    <td>{{ server.jarm }}</td>
+                </tr>
+            </table>
         </section>
     </div>
 </main>

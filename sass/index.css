@@ -10150,17 +10150,21 @@ main {
   text-align: center;
   margin-top: 50px;
 }
+main section {
+  margin-top: 70px;
+}
 main button {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-#jarm {
-  margin-top: 100px;
-}
-#jarm button {
+main button {
   margin-top: 0;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=index.css.map */
