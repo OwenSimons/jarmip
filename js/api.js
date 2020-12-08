@@ -11,7 +11,8 @@ var apiClient = new Vue({
                 {name: "Metasploit", jarm: "07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d"},
                 {name: "Cobalt Strike", jarm: "07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1"},
                 {name: "Merlin C2", jarm: "29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38"},
-            ]
+            ],
+            matchedC2: null,
         }
     },
     methods: {
@@ -19,7 +20,13 @@ var apiClient = new Vue({
             axios
                 .get(this.endpoint + this.ip)
                 .then(response => (this.jarm = response.data.jarm))
-            console.log(this.jarm)
+            //console.log(this.jarm)
+            //console.log(this.maliciousServers)
+            for (var i in this.maliciousServers) {
+                if (this.maliciousServers[i].jarm === this.jarm) {
+                    this.matchedC2 = this.maliciousServers[i].name;
+                }
+            }
         }
     }
 })
